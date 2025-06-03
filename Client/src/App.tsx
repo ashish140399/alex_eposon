@@ -16,8 +16,9 @@ export const MyContext = createContext({
         zip_code: "",
     },
     setUserinfo: (design) => {},
+    imageslist: [],
 });
-export const thankyouimage = require("./assets/thankyou.png");
+
 function App() {
     const [userinfo, setUserinfo] = React.useState({
         email: "",
@@ -26,12 +27,44 @@ function App() {
         birth_date: "",
         zip_code: "",
     });
+    const imageslist = [
+        {
+            thankyou: "/images/thankyou.png",
+        },
+    ];
+
+    useEffect(() => {
+        // Preload all images so they're cached in the browser
+        const preloadImages = async () => {
+            const imagePromises = Object.values(imageslist[0]).map(
+                (imagePath) => {
+                    return new Promise((resolve, reject) => {
+                        const img = new Image();
+                        img.src = imagePath;
+                        img.onload = () => resolve(img);
+                        img.onerror = reject;
+                    });
+                }
+            );
+
+            try {
+                await Promise.all(imagePromises);
+
+                console.log("All images preloaded successfully");
+            } catch (error) {
+                console.error("Error preloading images:", error);
+            }
+        };
+
+        preloadImages();
+    }, []);
 
     return (
         <MyContext.Provider
             value={{
                 userinfo,
                 setUserinfo,
+                imageslist,
             }}
         >
             <AnimatePresence mode="wait">

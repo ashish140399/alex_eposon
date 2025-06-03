@@ -1,14 +1,15 @@
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { MyContext, thankyouimage } from "../../App";
+import { MyContext } from "../../App";
 import axios from "axios";
+import { useContext } from "react";
 
 interface Props {}
 
 const Thankyou: React.FC<Props> = () => {
     const navigate = useNavigate();
-
+    const { imageslist } = useContext(MyContext);
     React.useEffect(() => {
         // Redirect after delay
         setTimeout(() => {
@@ -20,7 +21,11 @@ const Thankyou: React.FC<Props> = () => {
     return (
         <>
             <Layout>
-                <img src={thankyouimage} className="thank_you" alt="" />
+                <img
+                    src={imageslist[0].thankyou}
+                    className="thank_you"
+                    alt=""
+                />
             </Layout>
         </>
     );
