@@ -200,7 +200,43 @@ const Welcome: React.FC<Props> = () => {
                                     placeholder="MM/DD/YYYY"
                                     value={userinfo.birth_date}
                                     onChange={(e) => {
-                                        const value = e.target.value;
+                                        let value = e.target.value;
+
+                                        // Handle backspace
+                                        if (
+                                            value.length <
+                                            userinfo.birth_date.length
+                                        ) {
+                                            // If deleting a slash, remove the digit before it too
+                                            if (
+                                                userinfo.birth_date[
+                                                    value.length
+                                                ] === "/"
+                                            ) {
+                                                value = value.slice(0, -1);
+                                            }
+                                        }
+
+                                        // Remove non-digits
+                                        value = value.replace(/\D/g, "");
+
+                                        // Limit to 8 digits
+                                        value = value.slice(0, 8);
+
+                                        // Format as MM/DD/YYYY
+                                        if (value.length >= 2) {
+                                            value =
+                                                value.slice(0, 2) +
+                                                "/" +
+                                                value.slice(2);
+                                        }
+                                        if (value.length >= 5) {
+                                            value =
+                                                value.slice(0, 5) +
+                                                "/" +
+                                                value.slice(5);
+                                        }
+
                                         setUserinfo({
                                             ...userinfo,
                                             birth_date: value,
