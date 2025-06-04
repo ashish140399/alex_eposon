@@ -268,7 +268,12 @@ const Welcome: React.FC<Props> = () => {
                         </div>
                         <div className="togglebox">
                             <div className="toggle">
-                                <img src="/images/toggle.png" alt="" />
+                                <a
+                                    href="https://www.espolontequila.com/privacy-policy/"
+                                    target="_blank"
+                                >
+                                    <img src="/images/toggle.png" alt="" />
+                                </a>
                             </div>
                             <div className="slider">
                                 <CustomSwitch
