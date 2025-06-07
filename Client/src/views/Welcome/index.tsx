@@ -103,7 +103,7 @@ const Welcome: React.FC<Props> = () => {
     setChecked(false);
   };
 
-  const [openDialog, setOpenDialog] = useState(true);
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <>
       <Dialog
