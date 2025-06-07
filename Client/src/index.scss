@@ -1,0 +1,138 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.dialogwrapper {
+  font-family: "Toyota Type";
+
+}
+
+code {
+  font-family: asusrog;
+}
+
+.MuiInputBase-formControl {
+  color: #000 !important;
+  background: #fff;
+
+  // .MuiInputBase-input {
+  //     padding: 8px !important;
+  // }
+  .MuiOutlinedInput-notchedOutline {
+    border: 1px solid #fff !important;
+
+    border-radius: 0 !important;
+  }
+}
+
+.MuiMenu-paper {
+  .MuiMenuItem-root {
+    font-size: 28px;
+  }
+}
+
+.MuiPopover-paper {
+  transform: translateX(-50%) !important;
+  left: 50% !important;
+}
+
+.MuiMenu-paper .MuiMenuItem-root {
+  font-size: 50px !important;
+}
+
+.MuiList-root {
+  max-height: 350px !important;
+}
+
+.MuiAutocomplete-listbox {
+  max-height: 350px !important;
+}
+
+.MuiAutocomplete-listbox .MuiAutocomplete-option {
+  font-size: 50px !important;
+}
+
+.MuiPopover-root {
+  position: static !important;
+}
+
+.ques {
+  font-weight: bold;
+}
+
+.ans {
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.ratingOuter {
+  display: flex;
+  justify-content: center;
+}
+
+.MuiRating-root {
+  transform: scale(4) !important;
+  margin-top: 30px !important;
+}
+
+.MuiRating-iconEmpty {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+button:disabled {
+  filter: contrast(90%);
+  opacity: 0.9;
+  /* set the opacity to 50% */
+  cursor: not-allowed;
+  /* set the cursor to not-allowed */
+  /* add any other styles you want for a disabled button */
+}
+
+.MuiMenu-paper {
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f5f5f5;
+    display: block !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
+  }
+}
+
+.MuiInputBase-formControl {
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.MuiMenuItem-root {
+  &.Mui-selected {
+    background: rgba(135, 206, 235, 0.2) !important;
+  }
+}
